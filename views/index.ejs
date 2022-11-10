@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header class="row nav">
+        <a class="logo" href="/">student</a>
+        <div class="add--new--user">
+          <button class="add--new--user--btn">add new user</button>
+        </div>
+      </header>
+      <div class="row">
+        <div class="colum">
+          <table>
+            <thead>
+              <tr>
+                <th>sr</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone no</th>
+                <th>city</th>
+                <th>address</th>
+                <th>action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% result.forEach((data, index)=>{%>
+
+              <tr>
+                <td><%= index+1 %></td>
+                <td><%= data.username %></td>
+                <td><%= data.usermail %></td>
+                <td><%= data.userphone %></td>
+                <td><%= data.usercity %></td>
+                <td><%= data.useraddress %></td>
+                <td>
+                  <a class="btn update" href="/update/update/<%= data._id %>"
+                    >update</a
+                  >
+                  <a class="btn delete" href="/<%= data._id %>">delete</a>
+                </td>
+              </tr>
+
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <footer>
+        <p>student @copyright 2020</p>
+      </footer>
+    </div>
+    <div class="add--popup--overlay hidden"></div>
+    <div class="add--popup hidden">
+      <form action="/" method="post">
+        <div class="close--popup">
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+        <h4 class="titlebar">new upload data</h4>
+        <div class="add--popup--group">
+          <label for=""> Name</label>
+          <input type="text" name="name" placeholder="Name" />
+        </div>
+        <div class="add--popup--group">
+          <label for=""> Email</label>
+          <input type="email" placeholder="Email" name="email" />
+        </div>
+        <div class="add--popup--group">
+          <label for=""> Phone no</label>
+          <input type="number" placeholder="Number" name="phoneno" />
+        </div>
+        <div class="add--popup--group">
+          <label for=""> address</label>
+          <input type="text" placeholder="Address" name="address" />
+        </div>
+        <div class="add--popup--group">
+          <label for=""> city</label>
+          <input type="text" placeholder="City" name="city" />
+        </div>
+        <div class="add--popup--group">
+          <input type="submit" value="add new " class="add--new--popup--btn" />
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const popupover = document.querySelector(".add--popup--overlay");
+      const addpopbox = document.querySelector(".add--popup");
+      const colseopup = document.querySelector(".close--popup");
+      const addnewuser = document.querySelector(".add--new--user--btn");
+      const addopopp = document.querySelector(".add--new--popup--btn");
+
+      const popupsetting = function () {
+        popupover.classList.toggle("hidden");
+        addpopbox.classList.toggle("hidden");
+      };
+      addnewuser.addEventListener("click", popupsetting);
+      colseopup.addEventListener("click", popupsetting);
+      addopopp.addEventListener("click", popupsetting);
+    </script>
+  </body>
+</html>

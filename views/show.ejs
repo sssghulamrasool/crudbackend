@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header class="row nav">
+        <a class="logo" href="/">student</a>
+        <div class="add--new--user">
+          <a class="" href="/">view all student</a>
+        </div>
+      </header>
+
+      <div class="add--popup--update">
+        <form action="/update/<%= result._id %>" method="post">
+          <h4 class="titlebar">Update document</h4>
+          <div class="add--popup--group">
+            <label for=""> Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value="<%= result.username %>"
+            />
+          </div>
+          <div class="add--popup--group">
+            <label for=""> Email</label>
+            <input
+              type="email"
+              placeholder="Email"
+              name="email"
+              value="<%= result.usermail %>"
+            />
+          </div>
+          <div class="add--popup--group">
+            <label for=""> Phone no</label>
+            <input
+              type="number"
+              placeholder="Number"
+              name="phoneno"
+              value="<%= result.userphone %>"
+            />
+          </div>
+          <div class="add--popup--group">
+            <label for=""> address</label>
+            <input
+              type="text"
+              placeholder="Address"
+              name="address"
+              value="<%= result.useraddress %>"
+            />
+          </div>
+          <div class="add--popup--group">
+            <label for=""> city</label>
+            <input
+              type="text"
+              placeholder="City"
+              name="city"
+              value="<%= result.usercity %>"
+            />
+          </div>
+          <div class="add--popup--group">
+            <input type="submit" value="update" class="update--popup--btn" />
+          </div>
+        </form>
+      </div>
+      <footer>
+        <p>student @copyright 2020</p>
+      </footer>
+    </div>
+  </body>
+</html>
